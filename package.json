@@ -1,0 +1,25 @@
+{
+  "name": "users-api-db",
+  "version": "1.0.0",
+  "description": "API de usuários",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicius-pretto/users-api-db.git"
+  },
+  "author": "Vinicius Pretto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinicius-pretto/users-api-db/issues"
+  },
+  "homepage": "https://github.com/vinicius-pretto/users-api-db#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-status": "^1.5.0",
+    "pg": "^8.5.1"
+  }
+}
