@@ -33,6 +33,14 @@ class UsersRepository {
     return this.client.query(query)
       .then(response => response.rows[0]);
   }
+
+  remove(userId) {
+    const query = {
+      text: "DELETE FROM users WHERE id = $1",
+      values: [userId]
+    };
+    return this.client.query(query);
+  }
 }
 
 module.exports = UsersRepository;

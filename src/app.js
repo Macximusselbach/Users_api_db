@@ -21,6 +21,14 @@ app.get("/api/users/:userId", (req, res) => {
     });
 });
 
+app.delete("/api/users/:userId", (req, res) => {
+  const userId = req.params.userId;
+  usersRepository.remove(userId)
+    .then(() => {
+      res.sendStatus(HttpStatus.OK);
+    });
+});
+
 app.post("/api/users", (req, res) => {
   const user = req.body;
 
