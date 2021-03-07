@@ -1,4 +1,5 @@
-const { Client } = require("pg");
+const pg = require("pg");
+const Client = pg.Client;
 const config = require("../config");
 
 class UsersRepository {
@@ -22,6 +23,15 @@ class UsersRepository {
     }
     return this.client.query(query)
       .then(response => response.rows);
+  }
+
+  findById(userId) {
+    const query = {
+      text: 'SELECT id, first_name AS "firstName", last_name AS "lastName", email, birth_date AS "birthDate" FROM users WHERE id = $1',
+      values: [userId]
+    };
+    return this.client.query(query)
+      .then(response => response.rows[0]);
   }
 }
 

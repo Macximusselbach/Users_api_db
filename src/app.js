@@ -1,18 +1,3 @@
-/*
-buscar todos usuários
-GET /api/users
-
-criar usuário
-POST /api/users
-
-buscar um usuário
-GET /api/users/:id
-
-PUT /api/users/:id
-{}
-
-DELETE /api/users/:id
-*/
 const express = require("express");
 const HttpStatus = require("http-status");
 const UsersRepository = require("./users/usersRepository");
@@ -25,6 +10,14 @@ app.get("/api/users", (req, res) => {
   usersRepository.findAll()
     .then(users => {
       res.json({ users: users });
+    });
+});
+
+app.get("/api/users/:userId", (req, res) => {
+  const userId = req.params.userId;
+  usersRepository.findById(userId)
+    .then(user => {
+       res.json(user);
     });
 });
 
